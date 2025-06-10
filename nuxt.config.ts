@@ -3,10 +3,12 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
 
-  modules: [
-    '@nuxt/content'
-  ],
-
+  modules: ['@nuxt/content'],
+  // content: {
+  //   experimental: {
+  //     contentDocumentDriven: true
+  //   }
+  // },
   css: [
     '~/assets/css/main.sass'
   ]

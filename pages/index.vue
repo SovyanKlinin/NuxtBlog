@@ -2,7 +2,7 @@
   <div class="main">
     <h1>Блог</h1>
     <div class="main__articles">
-      <div class="main-article" v-for="article in data" :key="article._path">
+      <div class="main-article" v-for="article in articles" :key="article._path">
         <NuxtLink :to="article._path">
           {{ article.title }}
         </NuxtLink>
@@ -18,5 +18,9 @@ definePageMeta({
   layout: 'default'
 })
 
-const {data} = await useAsyncData(() => queryContent('/articles').find())
+useHead({
+  title: 'NuxtBlog'
+})
+
+const { data: articles } = await useAsyncData(() => queryContent('/articles').find());
 </script>
