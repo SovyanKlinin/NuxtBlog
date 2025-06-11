@@ -4,11 +4,9 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   modules: ['@nuxt/content'],
-  // content: {
-  //   experimental: {
-  //     contentDocumentDriven: true
-  //   }
-  // },
+  content: {
+    documentDriven: true,
+  },
   css: [
     '~/assets/css/main.sass'
   ]

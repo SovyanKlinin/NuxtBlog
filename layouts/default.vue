@@ -2,7 +2,7 @@
     
     <div class="default-layout">
         <Aside />
-        <NuxtPage />
+        <slot />
     </div>
 
 </template>
