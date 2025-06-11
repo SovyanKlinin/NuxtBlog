@@ -20,12 +20,13 @@ definePageMeta({
   layout: 'default'
 })
 
+const { data: articles } = await useAsyncData(() => queryContent('/articles').find());
+
 useHead({
   title: 'NuxtBlog'
 })
 
-const { data: articles } = await useAsyncData(() => queryContent('/articles').find());
-console.log(articles)
+
 </script>
 
 <style scoped lang="sass">
