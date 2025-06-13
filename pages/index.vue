@@ -21,6 +21,7 @@ definePageMeta({
 })
 
 const { data: articles } = await useAsyncData(() => queryContent('/articles').find());
+console.log(articles)
 
 useHead({
   title: 'NuxtBlog'

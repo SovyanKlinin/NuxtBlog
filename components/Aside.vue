@@ -2,13 +2,38 @@
     <aside class="sidebar">
         <h2>NuxtBlog</h2>
         <div class="sidebar__nav">
-            <NuxtLink to="/" class="sidebar__link">Главная</NuxtLink>
-            <NuxtLink>Войти</NuxtLink>
+            <el-button @click="backToMain">Главная</el-button>
+            <div class="sidebar__auth">
+                <el-input v-model="adminLogin" style="width: 100%" placeholder="Admin login" />
+                <el-input v-model="adminPassword" style="width: 100%" type="password" placeholder="Admin password"
+                    show-password />
+                <el-button @click="goToAdminPanel(adminLogin, adminPassword)">Войти</el-button>
+            </div>
         </div>
     </aside>
 </template>
 
-<script setup></script>
+<script setup>
+
+import { ref } from 'vue'
+
+
+const adminLogin = ref('');
+const adminPassword = ref('')
+
+const backToMain = () => {
+    navigateTo('/')
+}
+
+const goToAdminPanel = (login, password ) => {
+    if (login === "admin" && password === "admin") {
+        navigateTo('/admin?admin=true');
+    } else {
+        navigateTo('/');
+    }
+}
+
+</script>
 
 <style lang="sass" scoped>
 @use './../assets/css/mixins.sass'
@@ -18,7 +43,6 @@
     display: flex
     flex-direction: column
     gap: 40px
-    width: 200px
     height: 100vh
     padding: 20px
     background-color: variables.$deep-steel-blue
@@ -26,16 +50,14 @@
     color: white
 
     &__nav
+        width: 200px
         display: flex
         flex-direction: column
-        gap: 10px
+        gap: 30px
 
-    &__link
-        color: white
-        text-decoration: none
-
-        &:hover
-            color: variables.$steel-blue
-
+        .sidebar__auth
+            display: flex
+            flex-direction: column
+            gap: 10px
 
 </style>
