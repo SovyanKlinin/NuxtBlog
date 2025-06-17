@@ -1,8 +1,8 @@
 <template>
-    <div class="not-found">
-        <h1>404 Упс.. что-то пошло не так</h1>
-        <NuxtLink to="/" class="not-found__link">Вернуться на главную</NuxtLink>
-    </div>
+  <div class="not-found">
+    <h1>404 Упс.. что-то пошло не так</h1>
+    <NuxtLink to="/" class="not-found__link">Вернуться на главную</NuxtLink>
+  </div>
 </template>
 
 <script setup>
@@ -12,8 +12,14 @@ definePageMeta({
 })
 
 useHead({
-  title: '404 — Страница не найдена'
-})
+  title: 'Страница не найдена — 404',
+  meta: [
+    {
+      name: 'description',
+      content: 'Запрашиваемая страница не найдена'
+    }
+  ]
+});
 
 </script>
 

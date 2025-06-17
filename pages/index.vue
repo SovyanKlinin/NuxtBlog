@@ -20,11 +20,16 @@ definePageMeta({
   layout: 'default'
 })
 
-const { data: articles } = await useAsyncData(() => queryContent('/articles').find());
-console.log(articles)
+const { data: articles } = await useFetch('/api/articles');
 
 useHead({
-  title: 'NuxtBlog'
+    title: 'NuxtBlog',
+    meta: [
+        {
+            name: 'description',
+            content: 'Главную страница моего блога'
+        }
+    ]
 })
 
 

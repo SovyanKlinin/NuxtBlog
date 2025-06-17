@@ -16,20 +16,35 @@
 <script setup>
 
 import { ref } from 'vue'
-
+import { getCurrentInstance } from 'vue'
+import { ElNotification } from 'element-plus'
 
 const adminLogin = ref('');
 const adminPassword = ref('')
+const { appContext } = getCurrentInstance();
 
 const backToMain = () => {
     navigateTo('/')
 }
 
-const goToAdminPanel = (login, password ) => {
-    if (login === "admin" && password === "admin") {
-        navigateTo('/admin?admin=true');
+const goToAdminPanel = (login, password) => {
+    if (!login || !password) {
+        ElNotification({
+            type: 'error',
+            title: 'Поля не заполнены'
+        }, appContext)
     } else {
-        navigateTo('/');
+        if (login === "admin" && password === "admin") {
+            navigateTo('/admin?admin=true');
+        } else {
+
+            ElNotification({
+                type: 'error',
+                title: 'Неверный логин или пароль'
+            }, appContext)
+
+            navigateTo('/');
+        }
     }
 }
 

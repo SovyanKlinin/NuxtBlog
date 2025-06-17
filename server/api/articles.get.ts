@@ -1,6 +1,6 @@
-// import { queryContent } from '#content'
+import { serverQueryContent } from '#content/server'
 
-// export default async () => {
-//     const articles = await queryContent('/articles').find()
-//   return articles
-// }
+export default defineEventHandler(async (event) => {
+  const articles = await serverQueryContent(event, 'articles').find()
+  return articles
+})

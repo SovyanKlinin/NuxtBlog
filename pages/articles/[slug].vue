@@ -25,6 +25,16 @@ useHead({
   title: article.value.title
 })
 
+useHead({
+    title: article.value.title,
+    meta: [
+        {
+            name: 'description',
+            content: article.value.description
+        }
+    ]
+})
+
 </script>
 
 <style scoped lang="sass">
