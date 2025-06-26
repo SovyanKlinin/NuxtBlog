@@ -8,7 +8,7 @@
 <script setup>
 
 definePageMeta({
-  layout: false
+    layout: false,
 })
 
 useHead({
@@ -24,8 +24,8 @@ useHead({
 </script>
 
 <style lang="sass" scoped>
-@use './../assets/css/mixins.sass'
-@use './../assets/css/variables.sass'
+@use './assets/css/mixins.sass'
+@use './assets/css/variables.sass'
 
 .not-found
     display: flex

@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { useState } from '#app'
 import { getCurrentInstance } from 'vue'
 import { ElNotification } from 'element-plus'
 
@@ -22,8 +22,8 @@ definePageMeta({
 })
 
 const { appContext } = getCurrentInstance();
-const articleTitle = ref('');
-const articleDescription = ref('');
+const articleTitle = useState('articleTitle', () => '')
+const articleDescription = useState('articleDescription', () => '')
 
 const addArticle = async () => {
     if (!articleTitle.value.trim() || !articleDescription.value.trim()) {
@@ -65,9 +65,9 @@ const addArticle = async () => {
 <style scoped lang="sass">
 
 .editor
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    gap: 20px;
+    display: flex
+    flex-direction: column
+    padding: 20px
+    gap: 20px
 
 </style>

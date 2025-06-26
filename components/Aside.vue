@@ -2,7 +2,9 @@
     <aside class="sidebar">
         <h2>NuxtBlog</h2>
         <div class="sidebar__nav">
-            <el-button @click="backToMain">Главная</el-button>
+            <NuxtLink to="/" class="sidebar__link">
+                <el-button style="width: 100%">Главная</el-button>
+            </NuxtLink>
             <div class="sidebar__auth">
                 <el-input v-model="adminLogin" style="width: 100%" placeholder="Admin login" />
                 <el-input v-model="adminPassword" style="width: 100%" type="password" placeholder="Admin password"
@@ -22,10 +24,6 @@ import { ElNotification } from 'element-plus'
 const adminLogin = ref('');
 const adminPassword = ref('')
 const { appContext } = getCurrentInstance();
-
-const backToMain = () => {
-    navigateTo('/')
-}
 
 const goToAdminPanel = (login, password) => {
     if (!login || !password) {
@@ -69,6 +67,9 @@ const goToAdminPanel = (login, password) => {
         display: flex
         flex-direction: column
         gap: 30px
+
+        .sidebar__link
+            width: 100%
 
         .sidebar__auth
             display: flex

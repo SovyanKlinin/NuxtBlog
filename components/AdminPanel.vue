@@ -3,8 +3,12 @@
         <h2>NuxtBlog</h2>
         <div class="adminpanel-sidebar__nav">
             <el-button @click="goToMain">Выйти</el-button>
-            <el-button @click="goToAdmin" style="margin-left: 0;">Назад</el-button>
-            <el-button @click="addNewArticle" style="margin-left: 0;">Новая статья</el-button>
+            <NuxtLink class="adminpanel-sidebar__button" to="/admin?admin=true" style="margin-left: 0;">
+                <el-button style="width: 100%;">Назад</el-button>
+            </NuxtLink>
+            <NuxtLink class="adminpanel-sidebar__button" to="articles/editor" style="margin-left: 0;">
+                <el-button style="width: 100%;">Новая статья</el-button>
+            </NuxtLink>
         </div>
     </aside>
 </template>
@@ -17,14 +21,6 @@ const goToMain = (login, password) => {
     } else {
         navigateTo('/');
     }
-}
-
-const goToAdmin = () => {
-    navigateTo('/admin?admin=true');
-}
-
-const addNewArticle = () => {
-    navigateTo('articles/editor');
 }
 
 </script>
@@ -48,5 +44,8 @@ const addNewArticle = () => {
         display: flex
         flex-direction: column
         gap: 30px
+
+        .adminpanel-sidebar__button
+            width: 100%
 
 </style>
